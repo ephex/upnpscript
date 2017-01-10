@@ -1,0 +1,11 @@
+upnp_port_var="UPNP_VAGRANT_PORT_$1"
+echo
+echo "L7L7L7L7L7L7L7L7L7L7"
+echo
+echo " Deleting port mapping for port $1 : ${!upnp_port_var}"
+upnpc -d ${!upnp_port_var} TCP
+unset ${upnp_port_var}
+echo
+echo "L7L7L7L7L7L7L7L7L7L7"
+echo
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+echo
+echo "L7L7L7L7L7L7L7L7L7L7"
+echo
+
+upnpc_ext_port="$(shuf -i 30100-40100 -n 1)"
+upnpc -a `ifconfig en0 | grep "inet " | cut -d " " -f 2` $1 ${upnpc_ext_port} TCP
+
+
+upnpc_port_var="UPNP_VAGRANT_PORT_$1"
+export "${upnpc_port_var}"=$upnpc_ext_port
+
+echo "$1 forwarded to ${upnpc_ext_port}"
+echo
+echo "L7L7L7L7L7L7L7L7L7L7"
+echo
+
