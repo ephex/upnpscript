@@ -3,7 +3,7 @@ echo
 echo "L7L7L7L7L7L7L7L7L7L7"
 echo
 
-upnpc_ext_port="$(shuf -i 30100-40100 -n 1)"
+upnpc_ext_port="$[RANDOM%10000+30000]"
 upnpc -a `ifconfig en0 | grep "inet " | cut -d " " -f 2` $1 ${upnpc_ext_port} TCP
 
 
